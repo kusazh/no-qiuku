@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>No Qiuku 不穿秋裤</title>
+    <link rel="icon" href="no-qiuku.svg" type="image/svg+xml">
+    <style>
+    html {
+      font:
+        15px system-ui,
+        sans-serif;
+    }
+    body {
+      width: 24rem;
+      margin: 3rem auto;
+      padding: 0;
+    }
+    body * {
+      box-sizing: border-box;
+    }
+    header,
+    section {
+      margin-bottom: 3rem;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+    section {
+      line-height: 1.5;
+    }
+    hr {
+      margin: 3rem 0;
+      border: 0;
+      border-top: 1px solid lightgrey;
+    }
+    section[lang="zh-CN"] {
+      line-height: 1.75;
+    }
+    section[lang="zh-CN"] em {
+      font-style: normal;
+      /* Paint emphasis dots without enlarging the inline line box. */
+      padding-bottom: 0.5rem;
+      background:
+        radial-gradient(circle, currentColor 0.65px, transparent 0.85px) left
+        bottom / 1em 0.25rem repeat-x;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid lightgrey;
+      color: inherit;
+      font: inherit;
+    }
+    pre {
+      padding: 0.5rem;
+      background: lightgrey;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="no-qiuku.svg" width="160" height="160" alt="No Qiuku Logo">
+    </header>
+    <main>
+      <section lang="zh-CN">
+        <p>
+          你是否也像我一样，怀疑一切被预设的结论？怀疑上课是不是必须得记笔记，冬天是不是非要穿秋裤？怀疑让你记笔记、穿秋裤的老师家长，是不是有某种不可告人的动机？
+        </p>
+        <p>
+          怀疑你的老师私下跟文具厂勾结，以卖出成千上万的笔记本；怀疑你妈是秋裤集团幕后董事长，她编造新型秋裤骗局让所有人恐慌并从中获利。
+        </p>
+        <p>
+          不穿秋裤，拿回自己主宰冷暖的权利。就像我们所有<em>被剥夺的权利</em
+          >一样。
+        </p>
+      </section>
+      <section lang="en">
+        <p>
+          Do you, like me, question everything we are told to take for granted?
+          Whether you really need to take notes in class, or whether you have to
+          wear long johns in winter? Do you suspect that the teachers and
+          parents insisting on these things might have ulterior motives?
+        </p>
+        <p>
+          That your teachers are secretly colluding with stationery
+          manufacturers to sell notebooks by the thousand; that your mother is
+          the shadowy chairwoman of Big Long Johns, manufacturing a new long
+          johns scare and profiting from it?
+        </p>
+        <p>
+          Refuse to wear long johns. Reclaim your right to decide how warm you
+          need to be — just as we would any other <em>right denied to us</em>.
+        </p>
+      </section>
+      <hr>
+      <section>
+        <p>
+          <a href="https://noqiu.kus.ai"
+            ><img
+              src="no-qiuku-badge.svg"
+              width="81"
+              height="20"
+              alt="No Qiuku Badge"
+            ></a
+          >
+        </p>
+        <pre><code>&lt;a href="https://noqiu.kus.ai"&gt;
+  &lt;img src="https://noqiu.kus.ai/no-qiuku-badge.svg" width="81" height="20" alt="No Qiuku Badge"&gt;
+&lt;/a&gt;</code></pre>
+      </section>
+      <hr>
+      <section>
+        <input
+          id="name"
+          type="text"
+          placeholder="Enter Your Name"
+          maxlength="24"
+          autocomplete="name"
+        >
+        <img width="2692" height="2000" alt="No Qiuku Jiangzhuang">
+      </section>
+    </main>
+    <script>
+    const input = document.querySelector('input');
+    const preview = document.querySelector('section > img');
+    const canvas = document.createElement('canvas');
+    canvas.width = 2692;
+    canvas.height = 2000;
+    const context = canvas.getContext('2d');
+    const certificate = new Image();
+
+    function drawCertificate() {
+      if (!certificate.complete || !certificate.naturalWidth) return;
+      const name = input.value.trim();
+      const today = new Date();
+      const date = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日`;
+      context.drawImage(certificate, 0, 0, canvas.width, canvas.height);
+      context.font = '88px "Kaiti SC", KaiTi, STKaiti, serif';
+      context.textAlign = 'left';
+      const nameWidth = Math.min(
+        1300,
+        Math.max(264, context.measureText(name).width + 44),
+      );
+      context.textAlign = 'center';
+      context.fillText(name, 500 + nameWidth / 2, 820, nameWidth - 44);
+      context.lineWidth = 3;
+      context.beginPath();
+      context.moveTo(500, 837);
+      context.lineTo(500 + nameWidth, 837);
+      context.stroke();
+      context.textAlign = 'left';
+      context.fillText('同学：', 500 + nameWidth + 22, 820);
+      context.fillText(
+        '祝贺你今年没有穿秋裤，以资鼓励。',
+        500 + 2 * 88,
+        1030,
+        1692 - 2 * 88,
+      );
+      context.font = '64px "Kaiti SC", KaiTi, STKaiti, serif';
+      context.textAlign = 'right';
+      context.fillText('不穿秋裤运动', 2050, 1390);
+      context.fillText(date, 2050, 1500);
+      preview.alt = `${name} 同学：祝贺你今年没有穿秋裤，以资鼓励。不穿秋裤运动，${date}`;
+      preview.src = canvas.toDataURL('image/png');
+    }
+
+    certificate.onload = drawCertificate;
+    certificate.src = 'jiangzhuang.jpg';
+    input.addEventListener('blur', drawCertificate);
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' && !event.isComposing) input.blur();
+    });
+    </script>
+  </body>
+</html>

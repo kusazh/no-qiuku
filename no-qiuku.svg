@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">不许穿秋裤</title>
+  <desc id="desc">蓝底红圈与红色斜杠覆盖白色秋裤图形，矩形松紧腰带和两个矩形裤脚均与主体分离，裆部两侧缝线向内收窄，中间为弧形门襟镂空。</desc>
+  <defs>
+    <mask id="fly-cutout" maskUnits="userSpaceOnUse" x="220" y="125" width="200" height="390" style="mask-type:luminance">
+      <rect x="220" y="125" width="200" height="390" fill="#FFFFFF"/>
+      <path d="M293 158 V216 L308 262
+               M347 158 V216 L332 262
+               M293 175 C321 184 327 222 300.5 239"
+            fill="none" stroke="#000000" stroke-width="4"
+            stroke-linecap="butt" stroke-linejoin="miter"/>
+    </mask>
+  </defs>
+
+  <!-- Blue: DfT reproduction palette, Pantone 300, RGB 0 121 193 (#0079C1).
+       Source: https://www.gov.uk/guidance/traffic-sign-images#colour-palette -->
+  <!-- Transparent outside the sign. -->
+  <circle cx="320" cy="320" r="300" fill="#D71920"/>
+  <circle cx="320" cy="320" r="240" fill="#0079C1"/>
+
+  <!-- All three horizontal gaps are exactly 10 units. -->
+  <!-- Symmetric geometric silhouette; only the fly opening is curved. -->
+  <g transform="translate(0 10)">
+  <rect x="240" y="128" width="160" height="22" fill="#FFFFFF"/>
+  <path d="M240 160 H400 V230 L376 462 H334
+           L320 280 L306 462 H264
+           L240 230 Z"
+        fill="#FFFFFF" mask="url(#fly-cutout)"/>
+  <rect x="268" y="472" width="34" height="30" fill="#FFFFFF"/>
+  <rect x="338" y="472" width="34" height="30" fill="#FFFFFF"/>
+  </g>
+
+  <!-- No-waiting diagonal, layered above the garment and joined to the rim. -->
+  <path d="M122 122 L518 518" fill="none" stroke="#D71920" stroke-width="66"/>
+</svg>
